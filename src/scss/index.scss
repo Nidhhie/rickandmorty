@@ -1,0 +1,159 @@
+$bg-card: #333333;
+$bg-list: #1e2228;
+$text-color: #966018;
+$filter-gray: #808080;
+$heading-text: #676767;
+$character-card: 17vw;
+$character-mobile: 42vw;
+
+//breakpoints mixins
+$mobile-width: 200px;
+$desktop-width: 992px;
+
+body {
+    font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+@mixin mobile {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+//breakpoints end
+
+//landing container
+.landing-container {
+    .wrapper {
+        display: flex;
+       // padding: 10px;
+        .filter {
+            width: 20vw;
+            box-sizing: border-box;
+            .filter-box {
+                border: 1px solid black;
+                margin: 10px 50px 10px 0;
+                padding: 10px;
+                h3 {
+                    margin: 4px 0 4px 0;
+                }
+            }
+        }
+        .char-container {
+            width: 80vw;
+            .view-filters-container {
+                display: flex;
+                button {
+                    margin-right: 5px;
+                    background-color: $filter-gray;
+                    color: white;
+                    padding: 5px;
+                    border-radius: 5px;
+                    border: 0;
+                }
+            }
+            .search-sort-wrapper {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                align-items: center;
+            }
+            //character list
+            .character-list {
+                box-sizing: border-box;
+                display: flex;
+                flex-wrap: wrap;
+                background-color: white;
+                // character card
+                .character-card {
+                    background-color: $bg-card;
+                    width: $character-card;
+                    position: relative;
+                    border: 1vw solid $bg-list;
+                    img {
+                        width: $character-card;
+                        height: 35vh;
+                    }
+                    .transparent-heading {
+                        background-color: rgba($color: $bg-card, $alpha: 0.6);
+                        position: absolute;
+                        height: 60px;
+                        width: $character-card;
+                        top: calc(35vh - 60px);
+                        z-index: 2;
+                        color: #d7d1cc;
+                        font-size: 26px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        .sub-heading {
+                            font-size: 12px;
+                        }
+                    }
+                    .desc {
+                        display: flex;
+                        padding: 3px 10px 3px 10px;
+                        justify-content: space-between;
+                        color: $heading-text;
+                        font-size: 14px;
+                        font-weight: bold;
+                        .name {
+                            color: $text-color;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//checkbox
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    input {
+        margin-right: 10px;
+        margin-top: 6px;
+        width: 17px;
+        height: 17px;
+    }
+}
+
+@include mobile {
+    .wrapper,
+    .search-sort-wrapper {
+        flex-direction: column;
+        .search-container,.sort-container{
+            padding:10px 20px 10px 20px;
+            width:100%;
+            input,select{
+                height:30px;
+                width: 100%;
+            }
+        }
+    }
+    .filter {
+        width: 97vw !important;
+    }
+    .character-list {
+        width: 97vw!important;
+   .character-card {
+        width: $character-mobile!important;
+        margin: 2vw;
+        img{
+            height: 16vh!important;
+        }
+        img,
+        .transparent-heading {
+            width: $character-mobile!important;
+            top: calc(16vh - 60px)!important;
+        }
+    }
+}
+}

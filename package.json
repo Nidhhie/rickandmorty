@@ -1,0 +1,42 @@
+{
+  "name": "rickandmorty",
+  "version": "1.0.0",
+  "description": "rick and morty charcters list",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development babel-node ./server.js",
+    "build": "rimraf dist && webpack --config ./webpack.config.prod.js"
+  },
+  "author": "",
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.0.16",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^2.0.6",
+    "rimraf": "^2.5.4",
+    "sass": "^1.26.5",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.12.0",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.12.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
